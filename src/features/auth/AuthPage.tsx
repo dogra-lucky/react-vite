@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import type {AppDispatch, RootState} from "@/app/store";
 import {errorAssertion} from "@/utils/errorAssertion";
-import {login} from "./authSlice";
+import {loginApi} from "./authSlice";
 import { useNavigate } from "react-router-dom";
 
 export const AuthPage = () => {
@@ -15,11 +15,12 @@ export const AuthPage = () => {
   const handleSubmit = async (e: React.SubmitEvent) => {
     e.preventDefault();
     setError(null);
-    const result = await dispatch(login({email, password})).unwrap();
-    if (result?.accessToken) localStorage.setItem("token", result.accessToken);
+    const result = await dispatch(loginApi({email, password})).unwrap();
+    console.log("=====result",result)
+    if (result?.data.access_token) localStorage.setItem("token", result.data.access_token);
     try {
         console.log(loading);
-        navigate("/");
+        navigate("/home");
     } catch (error: unknown) {
       setError(errorAssertion(error));
     }
