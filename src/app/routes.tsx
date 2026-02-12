@@ -1,14 +1,27 @@
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import { AuthPage } from "@/features/auth/AuthPage";
+// import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {AuthPage} from "@/features/auth/AuthPage";
 import DashboardLayout from "@/layouts/DashboardLayout";
 import HomeLayout from "@/layouts/HomeLayout";
-export const AppRoutes = ()=>{
-    return (<BrowserRouter>
-    <Routes>
-        <Route path="/login" Component={AuthPage} />
-        <Route path="/"  index={true} Component={DashboardLayout} />
-        <Route path="/home" Component={HomeLayout} />
 
-    </Routes>
-    </BrowserRouter>)
-}
+
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/login",
+    element: <AuthPage />,
+  },
+  {
+    path: "/",
+    element: <DashboardLayout />,
+    index:true
+  },
+  {
+    path: "/home",
+    element: <HomeLayout />,
+  },
+])
+
+export const AppRoutes = ()=><RouterProvider router={router}/>
+
+
