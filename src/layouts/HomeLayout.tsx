@@ -1,24 +1,11 @@
 import {Outlet} from "react-router-dom";
-import { Button } from "react-bootstrap";
-import { logoutApi } from "@/features/auth/authSlice";
-import { useDispatch } from "react-redux";
-import type { AppDispatch } from "@/app/store";
-import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
+import {AppNavbar} from "@/components/AppNavBar";
 const HomeLayout = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const navigate = useNavigate();
-  const handleLogout = () => {
-    dispatch(logoutApi());
-    localStorage.removeItem("token");
-    toast.success("Logout successful");
-    navigate("/login");
-  };
   return (
     <div>
-      <nav style={{padding: 20, borderBottom: "1px solid #ccc"}}>
-        <Button onClick={handleLogout}>logout</Button>
-      </nav>
+      {/* <nav style={{padding: 20, borderBottom: "1px solid #ccc"}}> */}
+        <AppNavbar />
+      {/* </nav> */}
       <div style={{padding: 20}}>
         <Outlet />
       </div>

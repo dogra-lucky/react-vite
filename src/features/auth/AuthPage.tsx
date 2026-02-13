@@ -23,6 +23,7 @@ export const AuthPage = () => {
     defaultValues: {email: "", password: ""},
   });
 
+
   const handleLoginSubmit = async (data: LoginFormValues) => {
     try {
       const result = await dispatch(
@@ -44,7 +45,7 @@ export const AuthPage = () => {
           <Form.Label>Email address</Form.Label>
           <Form.Control
             type="email"
-            {...register("email")}
+            {...register("email" , {required: "Email is required"})}
             isInvalid={!!errors.email}
             placeholder="name@example.com"
           />
@@ -57,7 +58,7 @@ export const AuthPage = () => {
           <Form.Control
             type="password"
             placeholder="password"
-            {...register("password")}
+            {...register("password" , {required: "Password is required"})}
             isInvalid={!!errors.password}
           />
           <Form.Control.Feedback type="invalid">
