@@ -5,7 +5,7 @@ import HomeLayout from "@/layouts/HomeLayout";
 import { ClientsListPage } from "@/features/clients/list/ClientsListPage";
 import {ClientProfilePage} from "@/features/clients/profile/ClientProfilePage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
+import { PrivateRoute } from "./PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -17,16 +17,22 @@ const router = createBrowserRouter([
     index: true,
   },
   {
-    path: "/home",
-    element: <HomeLayout />,
-  },
-  {
-    path: "/clients/:id",
-    element: <ClientProfilePage />,
-  },
-  {
-    path: "/clients",
-    element: <ClientsListPage />,
+    path: "/",
+    element: <PrivateRoute />,
+    children: [
+      {
+        path: "/home",
+        element: <HomeLayout />,
+      },
+      {
+        path: "/clients/:id",
+        element: <ClientProfilePage />,
+      },
+      {
+        path: "/clients",
+        element: <ClientsListPage />,
+      },
+    ],
   },
 ]);
 
