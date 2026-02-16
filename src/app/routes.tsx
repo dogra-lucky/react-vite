@@ -6,6 +6,7 @@ import { ClientsListPage } from "@/features/clients/list/ClientsListPage";
 import {ClientProfilePage} from "@/features/clients/profile/ClientProfilePage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { PrivateRoute } from "./PrivateRoute";
+import { Memoize } from "@/layouts/Memoize";
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <DashboardLayout />,
     index: true,
+  },
+  {
+    path: "/memoize",
+    element: <Memoize />,
   },
   {
     path: "/",
