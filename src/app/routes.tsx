@@ -7,6 +7,7 @@ import {ClientProfilePage} from "@/features/clients/profile/ClientProfilePage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { PrivateRoute } from "./PrivateRoute";
 import { Memoize } from "@/layouts/Memoize";
+import { ErrorBoundaryTest } from "@/components/ErrorBoundaryTest";
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/memoize",
     element: <Memoize />,
+  },
+  {
+    path: "/error-boundary",
+    element: <ErrorBoundaryTest />,
   },
   {
     path: "/",
