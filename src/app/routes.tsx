@@ -8,10 +8,15 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { PrivateRoute } from "./PrivateRoute";
 import { Memoize } from "@/layouts/Memoize";
 import { ErrorBoundaryTest } from "@/components/ErrorBoundaryTest";
+import { LoginModalPage } from "@/components/modal/LoginModalPage";
 const router = createBrowserRouter([
   {
     path: "/login",
     element: <AuthPage />,
+  },
+    {
+    path: "/login-modal",
+    element: <LoginModalPage />,
   },
   {
     path: "/",
