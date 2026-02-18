@@ -9,6 +9,7 @@ import { PrivateRoute } from "./PrivateRoute";
 import { Memoize } from "@/layouts/Memoize";
 import { ErrorBoundaryTest } from "@/components/ErrorBoundaryTest";
 import { LoginModalPage } from "@/components/modal/LoginModalPage";
+import { ProductsPage } from "@/features/products/ProductsPage";
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <DashboardLayout />,
     index: true,
+  },
+  {
+    path: "/products",
+    element: <ProductsPage />,
   },
   {
     path: "/memoize",
